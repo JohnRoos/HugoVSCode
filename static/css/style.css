@@ -18,12 +18,13 @@ html, body {
 }
 
 .left-menu {
-    visibility: collapse;
+    visibility: hidden;
     position: relative;
     display: table-cell;
     table-layout: fixed;
     width: 100%;
-    margin-left: 50px;
+    /*margin-left: 50px;*/
+    margin-left: 0px;
     background-color: #252526;
     color: #cccccc;
     height: 0px;
@@ -37,6 +38,7 @@ html, body {
 
 @media screen and (min-width: 800px) { 
     .left-menu { 
+        margin-left: 50px;
         position: fixed;
         left: 0px;
         width: 375px;
@@ -46,14 +48,15 @@ html, body {
 }
 
 .left-menu-button-bar {
-    position: fixed;
-    width: 50px;
-    height: 100%;
-    background-color: #333333;
+    visibility: hidden;
 }
 
 @media screen and (min-width: 800px) { 
-    .left-menu-button-bar { 
+    .left-menu-button-bar {
+        width: 50px;
+        height: 100%;
+        background-color: #333333; 
+        visibility: visible;
         position: fixed;
         height: 100%
     } 
@@ -140,7 +143,8 @@ li.current {
     float: left;
     display: table-cell;
     margin: 0px;
-    padding-left: 50px;
+    /*padding-left: 50px;*/
+    padding-left: 0px;
     width: auto;
     height: auto;
 }
@@ -155,7 +159,6 @@ li.current {
 
 .main-path {
     position: relative;
-    width: 100%;
     height: 20px;
     font-family: "Segoe WPC", "Segoe UI";
     font-size: 13px;
@@ -165,6 +168,7 @@ li.current {
     background-color: #1E1E1E;
     border-bottom: #111111 2px solid;
     z-index: 100;
+    overflow-x: hidden;
 }
 
 .path-link {
@@ -175,6 +179,7 @@ li.current {
 @media screen and (min-width: 800px) { 
     .main-path { 
         position: fixed;
+        overflow-x: unset;
     } 
 }
 
@@ -196,7 +201,7 @@ li.current {
 
 @media screen and (min-width: 800px) { 
     .main-tabs {
-        float: none; 
+        float: unset;
         position: fixed;
     } 
 }
@@ -272,14 +277,14 @@ li.current {
     width: 100%;
     height: 100%;
     padding-left: 0px;  
-    margin-top: 55px;
-    padding-top: 5px;
-    padding-left: 5px;
+    padding-top: 0px;
+    padding-left: 0px;
 }
 
 @media screen and (min-width: 800px) { 
     .main-content-toggle {
         width: auto;
+        margin-top: 55px;
         padding-left: 0px;
     } 
 }
@@ -422,8 +427,9 @@ li.current {
     height: 100%;
     line-height: 19px;
     padding-top: 5px;
-    padding-right: 20px;
     padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
@@ -433,6 +439,7 @@ li.current {
         
         max-width: 1000px;
         padding-left: 20px;
+        padding-right: 20px;
     } 
 }
 
@@ -762,9 +769,11 @@ code[class|='language']::before {
     } 
 }
 
+/*
 .explorer-toggle:checked ~ .main {
     padding-left: 50px;
 }
+*/
 
 @media screen and (min-width: 800px) { 
     .explorer-toggle:checked ~ .main { 
@@ -774,7 +783,8 @@ code[class|='language']::before {
 
 .explorer-toggle-label {
     position: absolute;
-    left: 15px;
+    left: unset;
+    right: 15px;
     top: 10px;
     margin-top: 5px;
     margin-right: 10px;
@@ -790,7 +800,7 @@ code[class|='language']::before {
     border-right: 2px #777777 solid;
     border-bottom: 2px #777777 solid;
     content: " ";
-    z-index: 50;
+    z-index: 200;
 }
 
 .explorer-toggle-label::before {
@@ -827,26 +837,32 @@ code[class|='language']::before {
     width: 50px;
     height: 50px;
     z-index: 50;
-
+    /*border: 1px green solid;*/
 }
 
 .explorer-toggle-label-selection {
     color: #777777;
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 3px;
     height: 50px;
     z-index: 50;
 }
 
+/* Move toggle label to the left */
+
 @media screen and (min-width: 800px) { 
     .explorer-toggle-label { 
         position: fixed;
+        left: 15px;
+        right: unset;
     }
 
     .explorer-toggle-label-selection {
         position: fixed;
+        left: 0px;
+        right: unset;
     }
 }
 
@@ -887,3 +903,4 @@ div.highlight pre {
     white-space: pre-wrap;
     word-break: break-word;
 }
+
