@@ -2,7 +2,7 @@
 
 A Hugo theme made with inspiration from VSCode.
 
-![](\images\screenshot.png)
+![](/images/screenshot.png)
 
 ## Try it out
 
