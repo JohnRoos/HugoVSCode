@@ -7,7 +7,7 @@ A Hugo theme made with inspiration from VSCode.
 Add the repository into your Hugo Project repository as a submodule.
 
 ```git
-git submodule add https://github.com/JohnRoos/HugoVSCode.git themes/HugoVSCode.
+git submodule add https://github.com/JohnRoos/HugoVSCode.git themes/HugoVSCode
 ```
 
 ## No JavaScript, only CSS
