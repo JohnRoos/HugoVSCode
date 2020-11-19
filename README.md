@@ -2,6 +2,8 @@
 
 A Hugo theme made with inspiration from VSCode.
 
+![](\images\screenshot.png)
+
 ## Try it out
 
 Add the repository into your Hugo Project repository as a submodule.
