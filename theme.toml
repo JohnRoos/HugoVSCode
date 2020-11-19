@@ -1,0 +1,27 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "HugoVSCode"
+license = "MIT"
+licenselink = "https://github.com/JohnRoos/HugoVSCode/blob/main/LICENSE"
+description = "A Hugo theme made with inspiration from VSCode."
+homepage = "https://github.com/JohnRoos/HugoVSCode/"
+tags = ["VSCode"]
+features = []
+min_version = "0.41.0"
+
+
+[author]
+  name = "John Roos"
+  homepage = "https://blog.roostech.se/"
+
+
+# Below are the supported settings which you can add to your config.toml (do not uncomment them here)
+
+# To enable Google Analytics (this will add a JavaScript, sorry)
+# googleAnalytics = "XXXXX"
+
+# Add these two parameters to add a description and the site name in the left menu and below the tabs
+# [params]
+#     Description = "A blog about life, universe and everything."
+#     displayedSiteName = "blog.example.com"

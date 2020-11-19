@@ -1,0 +1,61 @@
+{{ define "main" }}
+    {{  $currentPage := . }} 
+    {{    $useSeparateTab := true }} 
+    {{    range first 5 (where .Site.RegularPages "Section" "posts") }} 
+    {{        if (eq $currentPage.RelPermalink .RelPermalink ) }}
+    {{            $useSeparateTab = false }}
+    {{        end }}
+    {{    end }}
+        
+        <div class="main-tabs">
+            <div class="main-tabs-scroll">
+                <div class="main-tabs-table">
+                    <div class ="main-tabs-row">
+                        <div class="main-tab">
+                            <span class="rotate-letter md-icon">&#10144;</span> <a href="/">Home.md</a> 
+                        </div>
+                    {{ if (eq $useSeparateTab true) }}
+                        <div class="main-tab current">
+                            <span class="rotate-letter md-icon">&#10144;</span> <i>{{ .File.LogicalName }}</i> 
+                        </div>
+                    {{ end }}
+                    {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+                        <div class="main-tab{{ if (eq $currentPage.RelPermalink .RelPermalink ) }} current{{ end }}">
+                            <span class="rotate-letter md-icon">&#10144;</span> <a href="{{ .RelPermalink }}">{{ .Title }}.md</a>
+                        </div>
+                    {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-path">
+            <a class="path-link" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }}</a> > content > {{ replace .File.Path "\\" " > " }}
+        </div>
+        <div class="main-content-toggle">
+
+            
+            <input class="source-preview-split" type="checkbox" id="source-preview-split-toggle">
+            <label class="source-preview-split-label" for="source-preview-split-toggle"></label>
+
+            <input class="source-toggle" type="checkbox" id="source-toggle">
+            <label class="source-toggle-label" for="source-toggle"></label>
+
+            <div class="main-content">
+                ---<br />
+                <span class="md-frontmatter">title</span>: <span class="md-frontmatter-string">{{ .Title }}</span><br />
+                <span class="md-frontmatter">date</span>: {{ .Date }}<br />
+                <span class="md-frontmatter">draft</span>: <span class="md-frontmatter">{{ .Draft }}</span><br />
+                <span class="md-frontmatter">author</span>: <span class="md-frontmatter-string">{{ .Params.author }}</span><br />
+                ----
+                {{ .Content }}
+            </div>
+
+            
+            <div class="main-content-preview">
+                <h1>{{ .Title }}</h1>
+                {{ .Content }}
+            </div>
+
+       </div>
+    
+{{ end }}

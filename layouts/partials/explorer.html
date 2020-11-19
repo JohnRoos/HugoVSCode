@@ -1,0 +1,44 @@
+
+<input class="explorer-toggle" type="checkbox" id="explorer-toggle" checked>
+<label class="explorer-toggle-label" for="explorer-toggle"><div class="explorer-toggle-label-clickablearea"></div></label>
+
+<div class="explorer-toggle-label-selection"></div>
+
+<div class="left-menu-button-bar"></div>
+
+<diV class='left-menu'>
+    {{ $currentPage := .  }}
+    <ul class="root">
+        <li class="root"><span class="rotate-letter">></span><span class="menu-item"><a class="menu-item-site" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }} (HUGOVSCODE)</a></span>
+            <ul>  
+                <li><span class="rotate-letter">></span><span class="menu-item">content</span>
+                    <ul>
+                        <li><span class="rotate-letter">></span><span class="menu-item">posts</span>
+                            <ul>
+                                {{ range where .Site.RegularPages "Type" "posts" }}
+                                <li {{ if (eq $currentPage.RelPermalink .RelPermalink ) }}class="current"{{ end }}><a href="{{ .RelPermalink }}"><span class="rotate-letter md-icon">&#10144;</span><span class="menu-item">{{ .Title }}.md</span></a></li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                        <li><span class="rotate-letter">></span><span class="menu-item">pages</span>
+                            <ul>
+                                {{ range where .Site.RegularPages "Type" "page" }}
+                                <li {{ if (eq $currentPage.RelPermalink .RelPermalink ) }}class="current"{{ end }}><a href="{{ .RelPermalink }}"><span class="rotate-letter md-icon">&#10144;</span><span class="menu-item">{{ .Title }}.md</span></a></li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>><span class="menu-item">data</span></li>
+                <li>><span class="menu-item">layouts</span></li>
+                <li>><span class="menu-item">resources</span></li>
+                <li>><span class="menu-item">static</span></li>
+                <li>><span class="menu-item">themes</span></li>
+                <li>config.toml</li>
+            </ul>
+        </li>
+    </ul>
+  
+
+    
+</diV>

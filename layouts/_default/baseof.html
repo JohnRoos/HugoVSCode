@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{- partial "head.html" . -}}
+    <body>
+        <div class="container">
+            {{- partial "explorer.html" . -}}
+        
+            <div class='main'>
+                {{- block "main" . }}{{- end }}
+
+            </div>
+        </div>
+    </body>
+</html>
