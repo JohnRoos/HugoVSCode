@@ -1,11 +1,31 @@
+{{ $baseurl = .Site.baseURL }}
+{{ $title := print .Title }}
+{{ if .IsHome }}
+    {{ $title = .Site.Title }}
+{{ end }}
+
+{{ $summary := "A blog about life, universe and everything." }}
+{{ if .Summary }}
+    {{ $summary = .Summary }}
+{{ else if .Site.Params.Description }}
+    {{ $summary = .Site.Params.Description }}
+{{ end }}
+
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
     <link rel="stylesheet" type="text/css" href="/css/syntax.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    {{ $title := print .Title }}
-    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+{{if .Site.Params.twitterHandle }}
+    <meta name='twitter:card'        content='summary' />
+    <meta name='twitter:site'        content='{{ .Site.Params.twitterHandle }}'/>
+    <meta name='twitter:creator'     content='{{ .Site.Params.twitterHandle }}'/>
+    <meta name='twitter:title'       content='{{ $title }}' />
+    <meta name='twitter:description' content='{{ $summary }}' />
+    <meta name='twitter:domain'      content='{{ $baseurl }}'/>
+{{ end }}
     <title>{{ $title }}</title>
-    <meta name="description" content="{{ if .Summary }}{{ .Summary }}{{ else if .Site.Params.Description }}{{ .Site.Params.Description }}{{ else }}A blog about technology{{ end }}"/>
+    <meta name="description" content="{{ $summary }}"/>
     {{ template "_internal/google_analytics.html" . }}
 </head>

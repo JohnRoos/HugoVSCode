@@ -25,3 +25,4 @@ min_version = "0.41.0"
 # [params]
 #     Description = "A blog about life, universe and everything."
 #     displayedSiteName = "blog.example.com"
+#     twitterHandle = "@myhandle"
