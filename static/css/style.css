@@ -190,7 +190,7 @@ li.current {
     position: relative;
     width: 100%;
     height: 35px;
-    background-color: #252526;
+    background-color: #1E1E1E;
     font-family: "Segoe WPC", "Segoe UI";
     font-size: 13px;
     padding-left: 0px;  
@@ -725,13 +725,6 @@ code[class|='language']::before {
     display: none;
 }
 
-@media screen and (min-width: 800px) { 
-    .left-menu-button-bar { 
-        position: fixed;
-        height: 100%
-    } 
-}
-
 .explorer-toggle:checked + .explorer-toggle-label {
     border-top: 2px white solid;
     border-left: 2px white solid;
@@ -747,6 +740,8 @@ code[class|='language']::before {
 .explorer-toggle:checked + .explorer-toggle-label::before {
     border-left: 2px white solid;
     border-bottom: 2px white solid;
+    border-top: 3px #252526 solid;
+    border-right: 3px #252526 solid;
 }
 
 .explorer-toggle:checked + .explorer-toggle-label::after {
@@ -760,25 +755,6 @@ code[class|='language']::before {
 .explorer-toggle:checked ~ .left-menu {
     visibility: visible;
     height: fit-content;
-}
-
-@media screen and (min-width: 800px) { 
-    .explorer-toggle:checked ~ .left-menu { 
-        visibility: visible;
-        height: 100%;
-    } 
-}
-
-/*
-.explorer-toggle:checked ~ .main {
-    padding-left: 50px;
-}
-*/
-
-@media screen and (min-width: 800px) { 
-    .explorer-toggle:checked ~ .main { 
-        padding-left: 425px;
-    }
 }
 
 .explorer-toggle-label {
@@ -809,10 +785,10 @@ code[class|='language']::before {
     margin-top: -2px;
     width: 6px;
     height: 6px;
-    border-top: 3px #333333 solid;
     border-left: 2px #777777 solid;
-    border-right: 3px #333333 solid;
     border-bottom: 2px #777777 solid;
+    border-top: 3px #1E1E1E solid;
+    border-right: 3px #1E1E1E solid;
     content: "";
 }
 
@@ -850,9 +826,14 @@ code[class|='language']::before {
     z-index: 50;
 }
 
-/* Move toggle label to the left */
+/* 
+    Move toggle label to the left 
+    Invert selection
+    Invert visibility
+*/
 
-@media screen and (min-width: 800px) { 
+@media screen and (min-width: 800px) {
+    /* move toggle to left */
     .explorer-toggle-label { 
         position: fixed;
         left: 15px;
@@ -863,6 +844,89 @@ code[class|='language']::before {
         position: fixed;
         left: 0px;
         right: unset;
+    }
+
+    /* menu visible and move main to make place for menu */
+    .explorer-toggle:checked ~ .left-menu { 
+        visibility: hidden;
+        height: 100%;
+    }
+
+    .left-menu-button-bar { 
+        position: fixed;
+        height: 100%
+    } 
+
+    .explorer-toggle:checked ~ .main { 
+        float: none;
+        width: 100%;
+        padding-left: 50px;
+    }
+
+    .left-menu {
+        visibility: visible;
+    }
+    
+    .main { 
+        float: none;
+        width: 100%;
+        padding-left: 425px;
+    }
+    
+    /* make toggle look checked as default */
+
+    .explorer-toggle-label {
+        border-top: 2px white solid;
+        border-left: 2px white solid;
+        border-right: 2px white solid;
+        border-bottom: 2px white solid;
+    }
+    
+    .explorer-toggle-label {
+        border-left: 2px white solid;
+        border-bottom: 2px white solid;
+    }
+    
+    .explorer-toggle-label::before {
+        border-left: 2px white solid;
+        border-bottom: 2px white solid;
+        border-top: 3px #333333 solid;
+        border-right: 3px #333333 solid;
+    }
+    
+    .explorer-toggle-label::after {
+        border-right: 2px white solid;
+    }
+    
+    .explorer-toggle-label-selection {
+        border-left: 3px white solid;
+    }
+    
+    .explorer-toggle:checked + .explorer-toggle-label {
+        border-top: 2px #777777 solid;
+        border-left: 2px #777777 solid;
+        border-right: 2px #777777 solid;
+        border-bottom: 2px #777777 solid;
+    }
+    
+    .explorer-toggle:checked + .explorer-toggle-label {
+        border-left: 2px #777777 solid;
+        border-bottom: 2px #777777 solid;
+    }
+    
+    .explorer-toggle:checked + .explorer-toggle-label::before {
+        border-left: 2px #777777 solid;
+        border-bottom: 2px #777777 solid;
+        border-top: 3px #333333 solid;
+        border-right: 3px #333333 solid;
+    }
+    
+    .explorer-toggle:checked + .explorer-toggle-label::after {
+        border-right: 2px #777777 solid;
+    }
+    
+    .explorer-toggle:checked ~ .explorer-toggle-label-selection {
+        border-left: 3px #777777 solid;
     }
 }
 
