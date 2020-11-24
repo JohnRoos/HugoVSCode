@@ -16,14 +16,29 @@ min_version = "0.41.0"
   homepage = "https://blog.roostech.se/"
 
 
-# Below are the supported settings which you can add to your config.toml (do not uncomment them here)
+# Below are the supported settings which you can add to your site config (do not uncomment them here)
 
-# To enable Google Analytics (this will add a JavaScript, sorry)
-# googleAnalytics = "XXXXX"
-
-# Add these two parameters to add a description and the site name in the left menu and below the tabs
+# Add the following configuration to have a description and site name.
 # [params]
 #     Description = "A blog about life, universe and everything."
 #     displayedSiteName = "blog.example.com"
+
+# Optional settings:
+
+# To enable Google Analytics (this will add a JavaScript, sorry)
+# googleAnalytics = "XX-XXXXXXXX-X"
+
+# To enable disqus comments (this will add a JavaScript, sorry again)
+# disqusShortname = "my-disqus-name"
+
+# To enable twitter cards (another javascript, my bad)
+# [params]
 #     twitterHandle = "@myhandle"
 #     twitterDomain = "http://blog.example.com/"
+
+# If you would like to disable disqus comments on a single post or page, add the following in front matter:
+# disableComments: true
+
+# To disable comments on the entire site, add the following to the site config:
+# [params]
+#     disableComments: true
