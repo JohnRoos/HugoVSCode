@@ -131,6 +131,24 @@ li.current {
     margin-top: 0px;
 }
 
+.folder::before {
+    margin-right: 5px;
+    margin-left: -1px;
+    margin-top: 8px;
+    display: block;
+    float: left;
+    width: 5px;  
+    height: 5px;
+    border-right: 2px #cccccc solid;
+    border-bottom: 2px #cccccc solid;
+    transform: rotate(-45deg);
+    content: " ";
+}
+
+.folder.open::before {
+    transform: rotate(45deg)
+}
+
 .menu-item-site {
     text-transform: uppercase;
     font-weight: 700;
@@ -175,6 +193,11 @@ li.current {
     border-bottom: #111111 2px solid;
     z-index: 100;
     overflow-x: hidden;
+}
+
+.main-path span {
+    float:left;
+    padding-right: 3px;
 }
 
 .path-link {

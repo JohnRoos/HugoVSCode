@@ -9,18 +9,18 @@
 <diV class='left-menu'>
     {{ $currentPage := .  }}
     <ul class="root">
-        <li class="root"><span class="rotate-letter">></span><span class="menu-item"><a class="menu-item-site" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }} (HUGOVSCODE)</a></span>
+        <li class="root"><div class="menu-item folder open"><a class="menu-item-site" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }} (HUGOVSCODE)</a></div>
             <ul>  
-                <li><span class="rotate-letter">></span><span class="menu-item">content</span>
+                <li><span class="menu-item folder open">content</span>
                     <ul>
-                        <li><span class="rotate-letter">></span><span class="menu-item">posts</span>
+                        <li><span class="menu-item folder open">posts</span>
                             <ul>
                                 {{ range where .Site.RegularPages "Type" "posts" }}
                                 <li {{ if (eq $currentPage.RelPermalink .RelPermalink ) }}class="current"{{ end }}><a href="{{ .RelPermalink }}"><span class="rotate-letter md-icon">&#10144;</span><span class="menu-item">{{ .Title }}.md</span></a></li>
                                 {{ end }}
                             </ul>
                         </li>
-                        <li><span class="rotate-letter">></span><span class="menu-item">pages</span>
+                        <li><span class="menu-item folder open">pages</span>
                             <ul>
                                 {{ range where .Site.RegularPages "Type" "page" }}
                                 <li {{ if (eq $currentPage.RelPermalink .RelPermalink ) }}class="current"{{ end }}><a href="{{ .RelPermalink }}"><span class="rotate-letter md-icon">&#10144;</span><span class="menu-item">{{ .Title }}.md</span></a></li>
@@ -29,11 +29,11 @@
                         </li>
                     </ul>
                 </li>
-                <li>><span class="menu-item">data</span></li>
-                <li>><span class="menu-item">layouts</span></li>
-                <li>><span class="menu-item">resources</span></li>
-                <li>><span class="menu-item">static</span></li>
-                <li>><span class="menu-item">themes</span></li>
+                <li><span class="menu-item folder">data</span></li>
+                <li><span class="menu-item folder">layouts</span></li>
+                <li><span class="menu-item folder">resources</span></li>
+                <li><span class="menu-item folder">static</span></li>
+                <li><span class="menu-item folder">themes</span></li>
                 <li>config.toml</li>
             </ul>
         </li>

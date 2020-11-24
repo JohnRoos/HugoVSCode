@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="main-path">
-            <a class="path-link" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }}</a> > content > {{ replace .File.Path "\\" " > " }}
+            <span><a class="path-link" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }}</a></span><span class="folder">content</span>{{ range (split .File.Path "\\") }}<span class="folder">{{ . }}</span>{{end}}
         </div>
         <div class="main-content-toggle">
 
