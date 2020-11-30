@@ -1,10 +1,38 @@
+{{ $currentPage := . }} 
+{{ $useSeparateTab := true }} 
+{{ if .IsHome }}
+{{    $useSeparateTab = false }}
+{{ end }}
+{{ range first 5 (where .Site.RegularPages "Section" "posts") }} 
+{{     if (eq $currentPage.RelPermalink .RelPermalink ) }}
+{{         $useSeparateTab = false }}
+{{     end }}
+{{ end }}
 <!DOCTYPE html>
 <html lang="en">
     {{- partial "head.html" . -}}
     <body>
         <div class="container">
             {{- partial "explorer.html" . -}}
-        
+
+            <!-- tabs -->
+                <div class ="main-tabs">
+                    <div class="main-tab{{ if .IsHome }} current{{ end }}">
+                        <span class="rotate-letter md-icon">&#10144;</span> <a href="/">Home.md</a> 
+                    </div>
+                {{ if (eq $useSeparateTab true) }}
+                    <div class="main-tab current">
+                        <span class="rotate-letter md-icon">&#10144;</span> <i>{{ .File.LogicalName }}</i> 
+                    </div>
+                {{ end }}
+                {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+                    <div class="main-tab{{ if (eq $currentPage.RelPermalink .RelPermalink ) }} current{{ end }}">
+                        <span class="rotate-letter md-icon">&#10144;</span> <a href="{{ .RelPermalink }}">{{ .Title }}.md</a>
+                    </div>
+                {{ end }}
+                </div>
+            <!-- tabs end  -->
+            
             <div class='main'>
                 {{- block "main" . }}{{- end }}
 

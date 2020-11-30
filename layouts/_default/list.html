@@ -8,22 +8,6 @@
     {{    end }}
         
         
-    <div class="main-tabs">
-        <div class="main-tabs-scroll">
-            <div class="main-tabs-table">
-                <div class ="main-tabs-row">
-                    <div class="main-tab current">
-                        <span class="rotate-letter md-icon">&#10144;</span> <a href="/">Home.md</a> 
-                    </div>
-                {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
-                    <div class="main-tab">
-                        <span class="rotate-letter md-icon">&#10144;</span> <a href="{{ .RelPermalink }}">{{ .Title }}.md</a>
-                    </div>
-                {{ end }}
-                </div>
-            </div>
-        </div>
-    </div>
         <div class="main-path">
             <span><a class="path-link" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }}</a></span><span class="folder">content</span><span class="folder">Home.md</span>
         </div>
