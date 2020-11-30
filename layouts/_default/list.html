@@ -44,23 +44,17 @@
                 
                 {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
                 {{ range $paginator.Pages }}     
-                    
-                <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                        <p>{{ .Summary }}</p> 
-                        
-                                              
-                    
+                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>        
+                    <p>{{ .Summary }}</p>
                 {{ end }}
 
             </div>
-
             <div class="main-content-preview">
+
                 {{ $paginator := .Paginate (where .Site.RegularPages "Section" "posts") }}
-                {{ range $paginator.Pages }}     
-                    
-                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-                        <p>{{ .Summary }}</p>                        
-                    
+                {{ range $paginator.Pages }}
+                    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a>&nbsp;<span class="h2-postdate">- {{ .Date.Format "January 2, 2006" }}</span></h2>
+                    <p>{{ .Summary }}</p>                        
                 {{ end }}
 
                 <div class="internal-pagination">
@@ -68,5 +62,4 @@
                 </div>    
             </div>
         </div>
-        
 {{ end }}

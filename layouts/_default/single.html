@@ -29,7 +29,12 @@
             </div>
         </div>
         <div class="main-path">
-            <span><a class="path-link" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }}</a></span><span class="folder">content</span>{{ range (split .File.Path "\\") }}<span class="folder">{{ . }}</span>{{end}}
+            <span><a class="path-link" href="{{ .Site.BaseURL }}">{{if .Site.Params.displayedSiteName }}{{ .Site.Params.displayedSiteName }}{{ else }}blog{{ end }}</a></span><span class="folder">content</span><span class="folder">{{ .Type }}{{if eq .Type "page"}}s{{end}}</span><span class="folder">{{ .Title }}.md</span>
+            {{ if .Date }}
+                    {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+                    {{ $dateFormat := .Site.Params.dateFormat | default "January 2, 2006" }}
+                    <span class="postdate-container">&nbsp;(<time class="postdate" datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>)</span>
+                {{ end }}
         </div>
         <div class="main-content-toggle">
 
@@ -53,7 +58,14 @@
             
             <div class="main-content-preview">
                 <h1>{{ .Title }}</h1>
+                
                 {{ .Content }}
+
+                <p>- Written by {{ .Params.author }}  
+                {{ if .Date }}
+                    {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+                    {{ $dateFormat := .Site.Params.dateFormat | default "January 2, 2006" }}
+                    on {{ .PublishDate.Format $dateFormat }}{{ end }}</p>
 
                 {{ if not .Params.disableComments }}
                     <div class="disqus-section">

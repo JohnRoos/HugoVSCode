@@ -193,6 +193,7 @@ li.current {
     border-bottom: #111111 2px solid;
     z-index: 100;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .main-path span {
@@ -1015,4 +1016,18 @@ div.highlight pre {
 
 .disqus-section {
     margin-top: 100px;
+}
+
+.postdate-container {
+    font-size: 12px;
+    color: #777777;
+}
+
+.postdate {
+    
+}
+
+.h2-postdate {
+    font-size: 12px;
+    color: #777777;
 }
