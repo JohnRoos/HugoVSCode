@@ -466,6 +466,7 @@ img {
     padding-left: 10px;
     padding-right: 10px;
     word-break: break-word;
+    word-spacing: 0.1em;
 }
 
 
