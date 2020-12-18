@@ -756,7 +756,7 @@ code[class|='language']::before {
     border-right: 1px #333 solid;
 }
 
-/* Lab  */
+/* Explorer toggle start  */
 
 .explorer-toggle {
     display: none;
@@ -974,6 +974,8 @@ code[class|='language']::before {
         left: 50px;
     }
 }
+
+/* Explorer toggle end  */
 
 /* Pagination */
 
