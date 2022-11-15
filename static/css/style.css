@@ -409,18 +409,6 @@ img {
     content: '"';
 }
 
-.main-content .language-powershell::before { 
-    content: '```powershell';  
-    display: block;
-    color: #C9D4D4; 
-}
-
-.main-content .language-powershell::after { 
-    content: '```';
-    display: block;
-    color: #C9D4D4; 
-}
-
 .main-content .language-yaml::before { 
     content: '```yaml';  
     display: block;
@@ -450,6 +438,18 @@ img {
     border-radius: 3px;  
     background-color: #1e1e1e;
     font-family: "Consolas", "Courier New", "monospace";
+}
+
+.main-content .language-powershell::before { 
+    content: '```powershell';  
+    display: block;
+    color: #C9D4D4; 
+}
+
+.main-content .language-powershell::after { 
+    content: '```';
+    display: block;
+    color: #C9D4D4; 
 }
 
 /* Preview */
@@ -505,13 +505,14 @@ img {
 }
 
 
+/*
 .main-content-preview chroma {
     background-color: greenyellow;;
 }
-
+*/
 .main-content-preview .chroma {
     padding: 15px;  
-    background-color: #161616;
+ /*   background-color: #161616;*/
 }
 
 .main-content-preview a {
@@ -536,51 +537,7 @@ img {
 }
 
 
-/* Syntax highlight */
 
-/* PowerShell */
-.language-powershell { 
-    color: #d4d4d4; 
-    font-family: Consolas, "Courier New", monospace; 
-    font-size: 14px; 
-    line-height: 19px;
-}
-
-.language-powershell .c {
-    color: #87c26c;
-}  
-
-.language-powershell .o {
-    color: #f8f8f2;
-}
-
-.language-powershell .nv {
-    color: #9cdcfe;
-}
-
-.language-powershell .k {
-    color: #c586c0;
-}
-
-.language-powershell .nb {
-    color: #dcdcaa;
-}
-
-.language-powershell .no {
-    color: #569cd6;
-}
-
-.language-powershell .se {
-    color: #d7ba7d;
-}
-
-.language-powershell .s1 {
-    color:#ce9178;
-}
-
-.language-powershell .s2 {
-    color:#ce9178;
-}
 
 
 /*
